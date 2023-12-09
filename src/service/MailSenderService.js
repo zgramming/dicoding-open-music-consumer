@@ -37,6 +37,8 @@ class MailSenderService {
         error,
         context: 'MailSenderService.sendEmail',
       });
+
+      return error;
     }
   }
 }

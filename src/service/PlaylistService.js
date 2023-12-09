@@ -8,9 +8,9 @@ class PlaylistService {
   }
 
   async getPlaylistWithSongs(playlistId) {
-    const playlist = await this._playlistById(playlistId);
+    const playlist = await this.playlistById(playlistId);
 
-    const songs = await this._getSongInPlaylist(playlistId);
+    const songs = await this.getSongInPlaylist(playlistId);
 
     return {
       ...playlist,
@@ -18,7 +18,7 @@ class PlaylistService {
     };
   }
 
-  async _playlistById(playlistId) {
+  async playlistById(playlistId) {
     const query = {
       text: `SELECT playlists.id, playlists.name FROM playlists
         WHERE playlists.id = $1`,
@@ -33,7 +33,7 @@ class PlaylistService {
     return result.rows[0];
   }
 
-  async _getSongInPlaylist(playlistId) {
+  async getSongInPlaylist(playlistId) {
     const query = {
       text: `SELECT songs.id, songs.title, songs.performer FROM songs
         LEFT JOIN playlist_songs ON playlist_songs.song_id = songs.id

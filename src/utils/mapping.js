@@ -4,4 +4,6 @@ const mappingSongInPlaylistFromDB = (song) => ({
   performer: song.performer,
 });
 
-module.exports = { mappingSongInPlaylistFromDB };
+module.exports = {
+  mappingSongInPlaylistFromDB,
+};
