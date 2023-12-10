@@ -13,8 +13,10 @@ class PlaylistService {
     const songs = await this.getSongInPlaylist(playlistId);
 
     return {
-      ...playlist,
-      songs,
+      playlist: {
+        ...playlist,
+        songs,
+      },
     };
   }
 
